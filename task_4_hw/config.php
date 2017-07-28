@@ -21,9 +21,9 @@ define('PSW', 'tuser1');
 //define('PSWPG', 'tuser1');
 
 //postgres
-define('HOSTPG', '192.168.56.1');
+define('HOSTPG', 'localhost');
 define('DATABASEPG', 'user1');
-define('USERPG', 'anna');
-define('PSWPG', '111');
+define('USERPG', 'user1');
+define('PSWPG', 'user1z');
 
 

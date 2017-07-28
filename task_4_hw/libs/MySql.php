@@ -71,7 +71,10 @@ class MySql extends Sql
     {
         $result = mysql_query($this->execQuery,$this->link);
         if($result)
-            return mysql_fetch_row($result);	
+        {
+            $selection = mysql_fetch_row($result);
+            return $selection[0];
+        }
         else 
             return $result; 
     }

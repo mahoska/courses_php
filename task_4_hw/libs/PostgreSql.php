@@ -16,10 +16,43 @@ class PosgreSql extends Sql
     }
     
     
+    public function getAssoc()
+    {
+        $result = pg_query($this->execQuery, $this->link);
+        if($result) 
+        {
+            $selection=array();
+            while ($row = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+                $selection[] = $row;
+            }
+            return $selection;
+        }
+        
+        pg_free_result($result);
+        
+        return $result;
+    }
     
+    function getOneAssoc()
+    {
+        $result = pg_query($this->execQuery, $this->link);
+        if($result)
+            return pg_fetch_array($result, null, PGSQL_ASSOC);	
+        else 
+            return $result; 
+    }
     
-    
-    
+    function getOneRow()
+    {
+        $result = pg_query($this->execQuery,$this->link);
+        if($result)
+        {
+            $selection = pg_fetch_row($result, 0);
+            return $selection[0];
+        }
+        else 
+            return $result; 
+    }
     
     
 }
